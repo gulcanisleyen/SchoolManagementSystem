@@ -1,0 +1,295 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="SchoolManagementDBModelStoreContainer" CdmEntityContainer="SchoolManagementDBEntities">
+    <EntitySetMapping Name="C__MigrationHistory">
+      <EntityTypeMapping TypeName="SchoolManagementDBModel.C__MigrationHistory">
+        <MappingFragment StoreEntitySet="__MigrationHistory">
+          <ScalarProperty Name="MigrationId" ColumnName="MigrationId" />
+          <ScalarProperty Name="ContextKey" ColumnName="ContextKey" />
+          <ScalarProperty Name="Model" ColumnName="Model" />
+          <ScalarProperty Name="ProductVersion" ColumnName="ProductVersion" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Branches">
+      <EntityTypeMapping TypeName="SchoolManagementDBModel.Branch">
+        <MappingFragment StoreEntitySet="Branch">
+          <ScalarProperty Name="BranchID" ColumnName="BranchID" />
+          <ScalarProperty Name="BranchName" ColumnName="BranchName" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="BranchDetails">
+      <EntityTypeMapping TypeName="SchoolManagementDBModel.BranchDetail">
+        <MappingFragment StoreEntitySet="BranchDetail">
+          <ScalarProperty Name="BranchDetailID" ColumnName="BranchDetailID" />
+          <ScalarProperty Name="BranchQuota" ColumnName="BranchQuota" />
+          <ScalarProperty Name="BranchType" ColumnName="BranchType" />
+          <ScalarProperty Name="branch_BranchID" ColumnName="branch_BranchID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Classrooms">
+      <EntityTypeMapping TypeName="SchoolManagementDBModel.Classroom">
+        <MappingFragment StoreEntitySet="Classroom">
+          <ScalarProperty Name="ClassroomID" ColumnName="ClassroomID" />
+          <ScalarProperty Name="ClassroomName" ColumnName="ClassroomName" />
+          <ScalarProperty Name="ClassroomDetailID" ColumnName="ClassroomDetailID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="ClassroomDetails">
+      <EntityTypeMapping TypeName="SchoolManagementDBModel.ClassroomDetail">
+        <MappingFragment StoreEntitySet="ClassroomDetail">
+          <ScalarProperty Name="ClassroomDetailID" ColumnName="ClassroomDetailID" />
+          <ScalarProperty Name="ClassroomQuota" ColumnName="ClassroomQuota" />
+          <ScalarProperty Name="ClassroomID" ColumnName="ClassroomID" />
+          <ScalarProperty Name="classroom_ClassroomID" ColumnName="classroom_ClassroomID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Exams">
+      <EntityTypeMapping TypeName="SchoolManagementDBModel.Exam">
+        <MappingFragment StoreEntitySet="Exam">
+          <ScalarProperty Name="ExamID" ColumnName="ExamID" />
+          <ScalarProperty Name="ExamName" ColumnName="ExamName" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="ExamDetails">
+      <EntityTypeMapping TypeName="SchoolManagementDBModel.ExamDetail">
+        <MappingFragment StoreEntitySet="ExamDetail">
+          <ScalarProperty Name="ExamDetailID" ColumnName="ExamDetailID" />
+          <ScalarProperty Name="ExamPlace" ColumnName="ExamPlace" />
+          <ScalarProperty Name="ExamHour" ColumnName="ExamHour" />
+          <ScalarProperty Name="exam_ExamID" ColumnName="exam_ExamID" />
+          <ScalarProperty Name="examDetail_ExamDetailID" ColumnName="examDetail_ExamDetailID" />
+          <ScalarProperty Name="studentDetail_StudentDetailID" ColumnName="studentDetail_StudentDetailID" />
+          <ScalarProperty Name="LessonDetail_LessonDetailID" ColumnName="LessonDetail_LessonDetailID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Lessons">
+      <EntityTypeMapping TypeName="SchoolManagementDBModel.Lesson">
+        <MappingFragment StoreEntitySet="Lesson">
+          <ScalarProperty Name="LessonID" ColumnName="LessonID" />
+          <ScalarProperty Name="LessonName" ColumnName="LessonName" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="LessonDetails">
+      <EntityTypeMapping TypeName="SchoolManagementDBModel.LessonDetail">
+        <MappingFragment StoreEntitySet="LessonDetail">
+          <ScalarProperty Name="LessonDetailID" ColumnName="LessonDetailID" />
+          <ScalarProperty Name="LessonTime" ColumnName="LessonTime" />
+          <ScalarProperty Name="LessonPlace" ColumnName="LessonPlace" />
+          <ScalarProperty Name="LessonQuota" ColumnName="LessonQuota" />
+          <ScalarProperty Name="branchdetail_BranchDetailID" ColumnName="branchdetail_BranchDetailID" />
+          <ScalarProperty Name="lesson_LessonID" ColumnName="lesson_LessonID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Managers">
+      <EntityTypeMapping TypeName="SchoolManagementDBModel.Manager">
+        <MappingFragment StoreEntitySet="Manager">
+          <ScalarProperty Name="ManagerID" ColumnName="ManagerID" />
+          <ScalarProperty Name="ManagerFirstName" ColumnName="ManagerFirstName" />
+          <ScalarProperty Name="ManagerLastName" ColumnName="ManagerLastName" />
+          <ScalarProperty Name="ManagerSSN" ColumnName="ManagerSSN" />
+          <ScalarProperty Name="ManagerBirthdate" ColumnName="ManagerBirthdate" />
+          <ScalarProperty Name="Gender" ColumnName="Gender" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="ManagerDetails">
+      <EntityTypeMapping TypeName="SchoolManagementDBModel.ManagerDetail">
+        <MappingFragment StoreEntitySet="ManagerDetail">
+          <ScalarProperty Name="ManagerDetailID" ColumnName="ManagerDetailID" />
+          <ScalarProperty Name="ManagerEmail" ColumnName="ManagerEmail" />
+          <ScalarProperty Name="ManagerPhoneNumber" ColumnName="ManagerPhoneNumber" />
+          <ScalarProperty Name="ManagerAddress" ColumnName="ManagerAddress" />
+          <ScalarProperty Name="PhotoID" ColumnName="PhotoID" />
+          <ScalarProperty Name="manager_ManagerID" ColumnName="manager_ManagerID" />
+          <ScalarProperty Name="photo_PhotoID" ColumnName="photo_PhotoID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Parents">
+      <EntityTypeMapping TypeName="SchoolManagementDBModel.Parent">
+        <MappingFragment StoreEntitySet="Parent">
+          <ScalarProperty Name="ParentID" ColumnName="ParentID" />
+          <ScalarProperty Name="ParentFirstName" ColumnName="ParentFirstName" />
+          <ScalarProperty Name="ParentLastName" ColumnName="ParentLastName" />
+          <ScalarProperty Name="ParentSSN" ColumnName="ParentSSN" />
+          <ScalarProperty Name="ParentBirthdate" ColumnName="ParentBirthdate" />
+          <ScalarProperty Name="Gender" ColumnName="Gender" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="ParentDetails">
+      <EntityTypeMapping TypeName="SchoolManagementDBModel.ParentDetail">
+        <MappingFragment StoreEntitySet="ParentDetail">
+          <ScalarProperty Name="ParentDetailID" ColumnName="ParentDetailID" />
+          <ScalarProperty Name="ParentEmail" ColumnName="ParentEmail" />
+          <ScalarProperty Name="ParentPhoneNumber" ColumnName="ParentPhoneNumber" />
+          <ScalarProperty Name="ParentAddress" ColumnName="ParentAddress" />
+          <ScalarProperty Name="parent_ParentID" ColumnName="parent_ParentID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Photos">
+      <EntityTypeMapping TypeName="SchoolManagementDBModel.Photo">
+        <MappingFragment StoreEntitySet="Photo">
+          <ScalarProperty Name="PhotoID" ColumnName="PhotoID" />
+          <ScalarProperty Name="StudentPhoto" ColumnName="StudentPhoto" />
+          <ScalarProperty Name="TeacherPhoto" ColumnName="TeacherPhoto" />
+          <ScalarProperty Name="ManagerPhoto" ColumnName="ManagerPhoto" />
+          <ScalarProperty Name="ManagerDetailID" ColumnName="ManagerDetailID" />
+          <ScalarProperty Name="StudentDetailID" ColumnName="StudentDetailID" />
+          <ScalarProperty Name="TeacherDetailID" ColumnName="TeacherDetailID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Schools">
+      <EntityTypeMapping TypeName="SchoolManagementDBModel.School">
+        <MappingFragment StoreEntitySet="School">
+          <ScalarProperty Name="SchoolID" ColumnName="SchoolID" />
+          <ScalarProperty Name="SchoolName" ColumnName="SchoolName" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="SchoolDetails">
+      <EntityTypeMapping TypeName="SchoolManagementDBModel.SchoolDetail">
+        <MappingFragment StoreEntitySet="SchoolDetail">
+          <ScalarProperty Name="SchoolDetailID" ColumnName="SchoolDetailID" />
+          <ScalarProperty Name="SchoolCity" ColumnName="SchoolCity" />
+          <ScalarProperty Name="SchoolCounty" ColumnName="SchoolCounty" />
+          <ScalarProperty Name="SchoolUnitPrice" ColumnName="SchoolUnitPrice" />
+          <ScalarProperty Name="SchoolAddress" ColumnName="SchoolAddress" />
+          <ScalarProperty Name="Region" ColumnName="Region" />
+          <ScalarProperty Name="school_SchoolID" ColumnName="school_SchoolID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Scores">
+      <EntityTypeMapping TypeName="SchoolManagementDBModel.Score">
+        <MappingFragment StoreEntitySet="Score">
+          <ScalarProperty Name="ScoreID" ColumnName="ScoreID" />
+          <ScalarProperty Name="ScoreNumber" ColumnName="ScoreNumber" />
+          <ScalarProperty Name="examDetail_ExamDetailID" ColumnName="examDetail_ExamDetailID" />
+          <ScalarProperty Name="lessonDetail_LessonDetailID" ColumnName="lessonDetail_LessonDetailID" />
+          <ScalarProperty Name="studentDetail_StudentDetailID" ColumnName="studentDetail_StudentDetailID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Students">
+      <EntityTypeMapping TypeName="SchoolManagementDBModel.Student">
+        <MappingFragment StoreEntitySet="Student">
+          <ScalarProperty Name="StudentID" ColumnName="StudentID" />
+          <ScalarProperty Name="StudentFirstName" ColumnName="StudentFirstName" />
+          <ScalarProperty Name="StudentLastName" ColumnName="StudentLastName" />
+          <ScalarProperty Name="StudentBirthdate" ColumnName="StudentBirthdate" />
+          <ScalarProperty Name="StudentSSN" ColumnName="StudentSSN" />
+          <ScalarProperty Name="Gender" ColumnName="Gender" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="StudentDetails">
+      <EntityTypeMapping TypeName="SchoolManagementDBModel.StudentDetail">
+        <MappingFragment StoreEntitySet="StudentDetail">
+          <ScalarProperty Name="StudentDetailID" ColumnName="StudentDetailID" />
+          <ScalarProperty Name="StudentEmail" ColumnName="StudentEmail" />
+          <ScalarProperty Name="StudentPhoneNumber" ColumnName="StudentPhoneNumber" />
+          <ScalarProperty Name="StudentAddress" ColumnName="StudentAddress" />
+          <ScalarProperty Name="PhotoID" ColumnName="PhotoID" />
+          <ScalarProperty Name="photo_PhotoID" ColumnName="photo_PhotoID" />
+          <ScalarProperty Name="student_StudentID" ColumnName="student_StudentID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="sysdiagrams">
+      <EntityTypeMapping TypeName="SchoolManagementDBModel.sysdiagram">
+        <MappingFragment StoreEntitySet="sysdiagrams">
+          <ScalarProperty Name="name" ColumnName="name" />
+          <ScalarProperty Name="principal_id" ColumnName="principal_id" />
+          <ScalarProperty Name="diagram_id" ColumnName="diagram_id" />
+          <ScalarProperty Name="version" ColumnName="version" />
+          <ScalarProperty Name="definition" ColumnName="definition" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Teachers">
+      <EntityTypeMapping TypeName="SchoolManagementDBModel.Teacher">
+        <MappingFragment StoreEntitySet="Teacher">
+          <ScalarProperty Name="TeacherID" ColumnName="TeacherID" />
+          <ScalarProperty Name="TeacherFirstName" ColumnName="TeacherFirstName" />
+          <ScalarProperty Name="TeacherLastName" ColumnName="TeacherLastName" />
+          <ScalarProperty Name="TeacherSSN" ColumnName="TeacherSSN" />
+          <ScalarProperty Name="TeacherBirthdate" ColumnName="TeacherBirthdate" />
+          <ScalarProperty Name="Gender" ColumnName="Gender" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="TeacherDetails">
+      <EntityTypeMapping TypeName="SchoolManagementDBModel.TeacherDetail">
+        <MappingFragment StoreEntitySet="TeacherDetail">
+          <ScalarProperty Name="TeacherDetailID" ColumnName="TeacherDetailID" />
+          <ScalarProperty Name="TeacherEmail" ColumnName="TeacherEmail" />
+          <ScalarProperty Name="TeacherPhoneNumber" ColumnName="TeacherPhoneNumber" />
+          <ScalarProperty Name="TeacherAddress" ColumnName="TeacherAddress" />
+          <ScalarProperty Name="PhotoID" ColumnName="PhotoID" />
+          <ScalarProperty Name="photo_PhotoID" ColumnName="photo_PhotoID" />
+          <ScalarProperty Name="teacher_TeacherID" ColumnName="teacher_TeacherID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <AssociationSetMapping Name="ClassroomDetailLessonDetails" TypeName="SchoolManagementDBModel.ClassroomDetailLessonDetails" StoreEntitySet="ClassroomDetailLessonDetails">
+      <EndProperty Name="ClassroomDetail">
+        <ScalarProperty Name="ClassroomDetailID" ColumnName="ClassroomDetail_ClassroomDetailID" />
+      </EndProperty>
+      <EndProperty Name="LessonDetail">
+        <ScalarProperty Name="LessonDetailID" ColumnName="LessonDetail_LessonDetailID" />
+      </EndProperty>
+    </AssociationSetMapping>
+    <AssociationSetMapping Name="ParentDetailStudentDetails" TypeName="SchoolManagementDBModel.ParentDetailStudentDetails" StoreEntitySet="ParentDetailStudentDetails">
+      <EndProperty Name="ParentDetail">
+        <ScalarProperty Name="ParentDetailID" ColumnName="ParentDetail_ParentDetailID" />
+      </EndProperty>
+      <EndProperty Name="StudentDetail">
+        <ScalarProperty Name="StudentDetailID" ColumnName="StudentDetail_StudentDetailID" />
+      </EndProperty>
+    </AssociationSetMapping>
+    <AssociationSetMapping Name="SchoolDetailManagerDetails" TypeName="SchoolManagementDBModel.SchoolDetailManagerDetails" StoreEntitySet="SchoolDetailManagerDetails">
+      <EndProperty Name="ManagerDetail">
+        <ScalarProperty Name="ManagerDetailID" ColumnName="ManagerDetail_ManagerDetailID" />
+      </EndProperty>
+      <EndProperty Name="SchoolDetail">
+        <ScalarProperty Name="SchoolDetailID" ColumnName="SchoolDetail_SchoolDetailID" />
+      </EndProperty>
+    </AssociationSetMapping>
+    <AssociationSetMapping Name="TeacherDetailBranchDetails" TypeName="SchoolManagementDBModel.TeacherDetailBranchDetails" StoreEntitySet="TeacherDetailBranchDetails">
+      <EndProperty Name="BranchDetail">
+        <ScalarProperty Name="BranchDetailID" ColumnName="BranchDetail_BranchDetailID" />
+      </EndProperty>
+      <EndProperty Name="TeacherDetail">
+        <ScalarProperty Name="TeacherDetailID" ColumnName="TeacherDetail_TeacherDetailID" />
+      </EndProperty>
+    </AssociationSetMapping>
+    <AssociationSetMapping Name="TeacherDetailManagerDetails" TypeName="SchoolManagementDBModel.TeacherDetailManagerDetails" StoreEntitySet="TeacherDetailManagerDetails">
+      <EndProperty Name="ManagerDetail">
+        <ScalarProperty Name="ManagerDetailID" ColumnName="ManagerDetail_ManagerDetailID" />
+      </EndProperty>
+      <EndProperty Name="TeacherDetail">
+        <ScalarProperty Name="TeacherDetailID" ColumnName="TeacherDetail_TeacherDetailID" />
+      </EndProperty>
+    </AssociationSetMapping>
+    <AssociationSetMapping Name="TeacherDetailStudentDetails" TypeName="SchoolManagementDBModel.TeacherDetailStudentDetails" StoreEntitySet="TeacherDetailStudentDetails">
+      <EndProperty Name="StudentDetail">
+        <ScalarProperty Name="StudentDetailID" ColumnName="StudentDetail_StudentDetailID" />
+      </EndProperty>
+      <EndProperty Name="TeacherDetail">
+        <ScalarProperty Name="TeacherDetailID" ColumnName="TeacherDetail_TeacherDetailID" />
+      </EndProperty>
+    </AssociationSetMapping>
+  </EntityContainerMapping>
+</Mapping>

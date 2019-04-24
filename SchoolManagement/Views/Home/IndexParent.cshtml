@@ -1,0 +1,65 @@
+﻿
+
+@{
+    ViewBag.Title = "Parent Page";
+    Layout = "~/Views/Shared/_LayoutParent.cshtml";
+}
+
+@using SchoolManagement.Models;
+@model Parent
+
+<section id="main-content">
+    <section class="wrapper site-min-height">
+        <div class="row mt">
+            <div class="col-lg-12">
+                <div class="row content-panel">
+                    <div class="col-md-4 profile-text mt mb centered">
+                        <div class="right-divider hidden-sm hidden-xs">
+
+                        </div>
+                    </div>
+                    <!-- /col-md-4 -->
+                    <div class="col-md-4 profile-text">
+                        @*<p>@Model.ParentFirstName</p>*@
+                        <h6>Main Administrator</h6>
+                        <p>Buraya şu öğrencinin velisi gibi bilgiler yazılabilir.</p>
+                        <br>
+
+                    </div>
+                    <!-- /col-md-4 -->
+                    <div class="col-md-4 centered">
+                        <div class="profile-pic">
+                            <p><img src="~/Content/img/ui-sam.jpg" class="img-circle"></p>
+
+                        </div>
+                    </div>
+                    <!-- /col-md-4 -->
+                </div>
+                <!-- /row -->
+            </div>
+            <!-- /col-lg-12 -->
+            <!-- /row -->
+        </div>
+        <!-- /container -->
+    </section>
+    <!-- /wrapper -->
+</section>
+<footer class="site-footer">
+    <div class="text-center">
+        <p>
+            &copy; Copyrights <strong>Student Management System</strong>. All Rights Reserved
+        </p>
+        <div class="credits">
+            <!--
+              You are NOT allowed to delete the credit link to TemplateMag with free version.
+              You can delete the credit link only if you bought the pro version.
+              Buy the pro version with working PHP/AJAX contact form: https://templatemag.com/dashio-bootstrap-admin-template/
+              Licensing information: https://templatemag.com/license/
+            -->
+            Created with Admin template by <a href="http://localhost:54423/Home/Index"></a>
+        </div>
+        <a href="responsive_table.html#" class="go-top">
+            <i class="fa fa-angle-up"></i>
+        </a>
+    </div>
+</footer>

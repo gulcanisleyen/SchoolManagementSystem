@@ -1,0 +1,894 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="SchoolManagementDBModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="__MigrationHistory">
+    <Key>
+      <PropertyRef Name="MigrationId" />
+      <PropertyRef Name="ContextKey" />
+    </Key>
+    <Property Name="MigrationId" Type="nvarchar" MaxLength="150" Nullable="false" />
+    <Property Name="ContextKey" Type="nvarchar" MaxLength="300" Nullable="false" />
+    <Property Name="Model" Type="varbinary(max)" Nullable="false" />
+    <Property Name="ProductVersion" Type="nvarchar" MaxLength="32" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Branch">
+    <Key>
+      <PropertyRef Name="BranchID" />
+    </Key>
+    <Property Name="BranchID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="BranchName" Type="nvarchar(max)" />
+  </EntityType>
+  <EntityType Name="BranchDetail">
+    <Key>
+      <PropertyRef Name="BranchDetailID" />
+    </Key>
+    <Property Name="BranchDetailID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="BranchQuota" Type="nvarchar(max)" />
+    <Property Name="BranchType" Type="nvarchar(max)" />
+    <Property Name="branch_BranchID" Type="int" />
+  </EntityType>
+  <EntityType Name="Classroom">
+    <Key>
+      <PropertyRef Name="ClassroomID" />
+    </Key>
+    <Property Name="ClassroomID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="ClassroomName" Type="nvarchar(max)" />
+    <Property Name="ClassroomDetailID" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="ClassroomDetail">
+    <Key>
+      <PropertyRef Name="ClassroomDetailID" />
+    </Key>
+    <Property Name="ClassroomDetailID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="ClassroomQuota" Type="nvarchar(max)" />
+    <Property Name="ClassroomID" Type="int" Nullable="false" />
+    <Property Name="classroom_ClassroomID" Type="int" />
+  </EntityType>
+  <EntityType Name="ClassroomDetailLessonDetails">
+    <Key>
+      <PropertyRef Name="ClassroomDetail_ClassroomDetailID" />
+      <PropertyRef Name="LessonDetail_LessonDetailID" />
+    </Key>
+    <Property Name="ClassroomDetail_ClassroomDetailID" Type="int" Nullable="false" />
+    <Property Name="LessonDetail_LessonDetailID" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Exam">
+    <Key>
+      <PropertyRef Name="ExamID" />
+    </Key>
+    <Property Name="ExamID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="ExamName" Type="nvarchar(max)" />
+  </EntityType>
+  <EntityType Name="ExamDetail">
+    <Key>
+      <PropertyRef Name="ExamDetailID" />
+    </Key>
+    <Property Name="ExamDetailID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="ExamPlace" Type="nvarchar(max)" />
+    <Property Name="ExamHour" Type="datetime" Nullable="false" />
+    <Property Name="exam_ExamID" Type="int" />
+    <Property Name="examDetail_ExamDetailID" Type="int" />
+    <Property Name="studentDetail_StudentDetailID" Type="int" />
+    <Property Name="LessonDetail_LessonDetailID" Type="int" />
+  </EntityType>
+  <EntityType Name="Lesson">
+    <Key>
+      <PropertyRef Name="LessonID" />
+    </Key>
+    <Property Name="LessonID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="LessonName" Type="nvarchar(max)" />
+  </EntityType>
+  <EntityType Name="LessonDetail">
+    <Key>
+      <PropertyRef Name="LessonDetailID" />
+    </Key>
+    <Property Name="LessonDetailID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="LessonTime" Type="datetime" Nullable="false" />
+    <Property Name="LessonPlace" Type="nvarchar(max)" />
+    <Property Name="LessonQuota" Type="nvarchar(max)" />
+    <Property Name="branchdetail_BranchDetailID" Type="int" />
+    <Property Name="lesson_LessonID" Type="int" />
+  </EntityType>
+  <EntityType Name="Manager">
+    <Key>
+      <PropertyRef Name="ManagerID" />
+    </Key>
+    <Property Name="ManagerID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="ManagerFirstName" Type="nvarchar(max)" />
+    <Property Name="ManagerLastName" Type="nvarchar(max)" />
+    <Property Name="ManagerSSN" Type="int" Nullable="false" />
+    <Property Name="ManagerBirthdate" Type="datetime" Nullable="false" />
+    <Property Name="Gender" Type="nvarchar(max)" />
+  </EntityType>
+  <EntityType Name="ManagerDetail">
+    <Key>
+      <PropertyRef Name="ManagerDetailID" />
+    </Key>
+    <Property Name="ManagerDetailID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="ManagerEmail" Type="nvarchar(max)" />
+    <Property Name="ManagerPhoneNumber" Type="nvarchar(max)" />
+    <Property Name="ManagerAddress" Type="nvarchar(max)" />
+    <Property Name="PhotoID" Type="int" Nullable="false" />
+    <Property Name="manager_ManagerID" Type="int" />
+    <Property Name="photo_PhotoID" Type="int" />
+  </EntityType>
+  <EntityType Name="Parent">
+    <Key>
+      <PropertyRef Name="ParentID" />
+    </Key>
+    <Property Name="ParentID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="ParentFirstName" Type="nvarchar(max)" />
+    <Property Name="ParentLastName" Type="nvarchar(max)" />
+    <Property Name="ParentSSN" Type="int" Nullable="false" />
+    <Property Name="ParentBirthdate" Type="datetime" Nullable="false" />
+    <Property Name="Gender" Type="nvarchar(max)" />
+  </EntityType>
+  <EntityType Name="ParentDetail">
+    <Key>
+      <PropertyRef Name="ParentDetailID" />
+    </Key>
+    <Property Name="ParentDetailID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="ParentEmail" Type="nvarchar(max)" />
+    <Property Name="ParentPhoneNumber" Type="nvarchar(max)" />
+    <Property Name="ParentAddress" Type="nvarchar(max)" />
+    <Property Name="parent_ParentID" Type="int" />
+  </EntityType>
+  <EntityType Name="ParentDetailStudentDetails">
+    <Key>
+      <PropertyRef Name="ParentDetail_ParentDetailID" />
+      <PropertyRef Name="StudentDetail_StudentDetailID" />
+    </Key>
+    <Property Name="ParentDetail_ParentDetailID" Type="int" Nullable="false" />
+    <Property Name="StudentDetail_StudentDetailID" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Photo">
+    <Key>
+      <PropertyRef Name="PhotoID" />
+    </Key>
+    <Property Name="PhotoID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="StudentPhoto" Type="varbinary(max)" />
+    <Property Name="TeacherPhoto" Type="varbinary(max)" />
+    <Property Name="ManagerPhoto" Type="varbinary(max)" />
+    <Property Name="ManagerDetailID" Type="int" Nullable="false" />
+    <Property Name="StudentDetailID" Type="int" Nullable="false" />
+    <Property Name="TeacherDetailID" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="School">
+    <Key>
+      <PropertyRef Name="SchoolID" />
+    </Key>
+    <Property Name="SchoolID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="SchoolName" Type="nvarchar(max)" />
+  </EntityType>
+  <EntityType Name="SchoolDetail">
+    <Key>
+      <PropertyRef Name="SchoolDetailID" />
+    </Key>
+    <Property Name="SchoolDetailID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="SchoolCity" Type="nvarchar(max)" />
+    <Property Name="SchoolCounty" Type="int" Nullable="false" />
+    <Property Name="SchoolUnitPrice" Type="decimal" Precision="18" Scale="2" Nullable="false" />
+    <Property Name="SchoolAddress" Type="nvarchar(max)" />
+    <Property Name="Region" Type="nvarchar(max)" />
+    <Property Name="school_SchoolID" Type="int" />
+  </EntityType>
+  <EntityType Name="SchoolDetailManagerDetails">
+    <Key>
+      <PropertyRef Name="SchoolDetail_SchoolDetailID" />
+      <PropertyRef Name="ManagerDetail_ManagerDetailID" />
+    </Key>
+    <Property Name="SchoolDetail_SchoolDetailID" Type="int" Nullable="false" />
+    <Property Name="ManagerDetail_ManagerDetailID" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Score">
+    <Key>
+      <PropertyRef Name="ScoreID" />
+    </Key>
+    <Property Name="ScoreID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="ScoreNumber" Type="int" Nullable="false" />
+    <Property Name="examDetail_ExamDetailID" Type="int" />
+    <Property Name="lessonDetail_LessonDetailID" Type="int" />
+    <Property Name="studentDetail_StudentDetailID" Type="int" />
+  </EntityType>
+  <EntityType Name="Student">
+    <Key>
+      <PropertyRef Name="StudentID" />
+    </Key>
+    <Property Name="StudentID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="StudentFirstName" Type="nvarchar(max)" />
+    <Property Name="StudentLastName" Type="nvarchar(max)" />
+    <Property Name="StudentBirthdate" Type="datetime" Nullable="false" />
+    <Property Name="StudentSSN" Type="int" Nullable="false" />
+    <Property Name="Gender" Type="nvarchar(max)" />
+  </EntityType>
+  <EntityType Name="StudentDetail">
+    <Key>
+      <PropertyRef Name="StudentDetailID" />
+    </Key>
+    <Property Name="StudentDetailID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="StudentEmail" Type="nvarchar(max)" />
+    <Property Name="StudentPhoneNumber" Type="nvarchar(max)" />
+    <Property Name="StudentAddress" Type="nvarchar(max)" />
+    <Property Name="PhotoID" Type="int" Nullable="false" />
+    <Property Name="photo_PhotoID" Type="int" />
+    <Property Name="student_StudentID" Type="int" />
+  </EntityType>
+  <EntityType Name="sysdiagrams">
+    <Key>
+      <PropertyRef Name="diagram_id" />
+    </Key>
+    <Property Name="name" Type="nvarchar" MaxLength="128" Nullable="false" />
+    <Property Name="principal_id" Type="int" Nullable="false" />
+    <Property Name="diagram_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="version" Type="int" />
+    <Property Name="definition" Type="varbinary(max)" />
+  </EntityType>
+  <EntityType Name="Teacher">
+    <Key>
+      <PropertyRef Name="TeacherID" />
+    </Key>
+    <Property Name="TeacherID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="TeacherFirstName" Type="nvarchar(max)" />
+    <Property Name="TeacherLastName" Type="nvarchar(max)" />
+    <Property Name="TeacherSSN" Type="int" Nullable="false" />
+    <Property Name="TeacherBirthdate" Type="datetime" Nullable="false" />
+    <Property Name="Gender" Type="nvarchar(max)" />
+  </EntityType>
+  <EntityType Name="TeacherDetail">
+    <Key>
+      <PropertyRef Name="TeacherDetailID" />
+    </Key>
+    <Property Name="TeacherDetailID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="TeacherEmail" Type="nvarchar(max)" />
+    <Property Name="TeacherPhoneNumber" Type="nvarchar(max)" />
+    <Property Name="TeacherAddress" Type="nvarchar(max)" />
+    <Property Name="PhotoID" Type="int" Nullable="false" />
+    <Property Name="photo_PhotoID" Type="int" />
+    <Property Name="teacher_TeacherID" Type="int" />
+  </EntityType>
+  <EntityType Name="TeacherDetailBranchDetails">
+    <Key>
+      <PropertyRef Name="TeacherDetail_TeacherDetailID" />
+      <PropertyRef Name="BranchDetail_BranchDetailID" />
+    </Key>
+    <Property Name="TeacherDetail_TeacherDetailID" Type="int" Nullable="false" />
+    <Property Name="BranchDetail_BranchDetailID" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="TeacherDetailManagerDetails">
+    <Key>
+      <PropertyRef Name="TeacherDetail_TeacherDetailID" />
+      <PropertyRef Name="ManagerDetail_ManagerDetailID" />
+    </Key>
+    <Property Name="TeacherDetail_TeacherDetailID" Type="int" Nullable="false" />
+    <Property Name="ManagerDetail_ManagerDetailID" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="TeacherDetailStudentDetails">
+    <Key>
+      <PropertyRef Name="TeacherDetail_TeacherDetailID" />
+      <PropertyRef Name="StudentDetail_StudentDetailID" />
+    </Key>
+    <Property Name="TeacherDetail_TeacherDetailID" Type="int" Nullable="false" />
+    <Property Name="StudentDetail_StudentDetailID" Type="int" Nullable="false" />
+  </EntityType>
+  <Association Name="FK_dbo_BranchDetail_dbo_Branch_branch_BranchID">
+    <End Role="Branch" Type="Self.Branch" Multiplicity="0..1" />
+    <End Role="BranchDetail" Type="Self.BranchDetail" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Branch">
+        <PropertyRef Name="BranchID" />
+      </Principal>
+      <Dependent Role="BranchDetail">
+        <PropertyRef Name="branch_BranchID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_dbo_Classroom_dbo_ClassroomDetail_ClassroomDetailID">
+    <End Role="ClassroomDetail" Type="Self.ClassroomDetail" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="Classroom" Type="Self.Classroom" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="ClassroomDetail">
+        <PropertyRef Name="ClassroomDetailID" />
+      </Principal>
+      <Dependent Role="Classroom">
+        <PropertyRef Name="ClassroomDetailID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_dbo_ClassroomDetail_dbo_Classroom_classroom_ClassroomID">
+    <End Role="Classroom" Type="Self.Classroom" Multiplicity="0..1" />
+    <End Role="ClassroomDetail" Type="Self.ClassroomDetail" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Classroom">
+        <PropertyRef Name="ClassroomID" />
+      </Principal>
+      <Dependent Role="ClassroomDetail">
+        <PropertyRef Name="classroom_ClassroomID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_dbo_ClassroomDetailLessonDetails_dbo_ClassroomDetail_ClassroomDetail_ClassroomDetailID">
+    <End Role="ClassroomDetail" Type="Self.ClassroomDetail" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="ClassroomDetailLessonDetails" Type="Self.ClassroomDetailLessonDetails" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="ClassroomDetail">
+        <PropertyRef Name="ClassroomDetailID" />
+      </Principal>
+      <Dependent Role="ClassroomDetailLessonDetails">
+        <PropertyRef Name="ClassroomDetail_ClassroomDetailID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_dbo_ClassroomDetailLessonDetails_dbo_LessonDetail_LessonDetail_LessonDetailID">
+    <End Role="LessonDetail" Type="Self.LessonDetail" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="ClassroomDetailLessonDetails" Type="Self.ClassroomDetailLessonDetails" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="LessonDetail">
+        <PropertyRef Name="LessonDetailID" />
+      </Principal>
+      <Dependent Role="ClassroomDetailLessonDetails">
+        <PropertyRef Name="LessonDetail_LessonDetailID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_dbo_ExamDetail_dbo_Exam_exam_ExamID">
+    <End Role="Exam" Type="Self.Exam" Multiplicity="0..1" />
+    <End Role="ExamDetail" Type="Self.ExamDetail" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Exam">
+        <PropertyRef Name="ExamID" />
+      </Principal>
+      <Dependent Role="ExamDetail">
+        <PropertyRef Name="exam_ExamID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_dbo_ExamDetail_dbo_ExamDetail_examDetail_ExamDetailID">
+    <End Role="ExamDetail" Type="Self.ExamDetail" Multiplicity="0..1" />
+    <End Role="ExamDetail1" Type="Self.ExamDetail" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="ExamDetail">
+        <PropertyRef Name="ExamDetailID" />
+      </Principal>
+      <Dependent Role="ExamDetail1">
+        <PropertyRef Name="examDetail_ExamDetailID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_dbo_ExamDetail_dbo_LessonDetail_LessonDetail_LessonDetailID">
+    <End Role="LessonDetail" Type="Self.LessonDetail" Multiplicity="0..1" />
+    <End Role="ExamDetail" Type="Self.ExamDetail" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="LessonDetail">
+        <PropertyRef Name="LessonDetailID" />
+      </Principal>
+      <Dependent Role="ExamDetail">
+        <PropertyRef Name="LessonDetail_LessonDetailID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_dbo_ExamDetail_dbo_StudentDetail_studentDetail_StudentDetailID">
+    <End Role="StudentDetail" Type="Self.StudentDetail" Multiplicity="0..1" />
+    <End Role="ExamDetail" Type="Self.ExamDetail" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="StudentDetail">
+        <PropertyRef Name="StudentDetailID" />
+      </Principal>
+      <Dependent Role="ExamDetail">
+        <PropertyRef Name="studentDetail_StudentDetailID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_dbo_LessonDetail_dbo_BranchDetail_branchdetail_BranchDetailID">
+    <End Role="BranchDetail" Type="Self.BranchDetail" Multiplicity="0..1" />
+    <End Role="LessonDetail" Type="Self.LessonDetail" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="BranchDetail">
+        <PropertyRef Name="BranchDetailID" />
+      </Principal>
+      <Dependent Role="LessonDetail">
+        <PropertyRef Name="branchdetail_BranchDetailID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_dbo_LessonDetail_dbo_Lesson_lesson_LessonID">
+    <End Role="Lesson" Type="Self.Lesson" Multiplicity="0..1" />
+    <End Role="LessonDetail" Type="Self.LessonDetail" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Lesson">
+        <PropertyRef Name="LessonID" />
+      </Principal>
+      <Dependent Role="LessonDetail">
+        <PropertyRef Name="lesson_LessonID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_dbo_ManagerDetail_dbo_Manager_manager_ManagerID">
+    <End Role="Manager" Type="Self.Manager" Multiplicity="0..1" />
+    <End Role="ManagerDetail" Type="Self.ManagerDetail" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Manager">
+        <PropertyRef Name="ManagerID" />
+      </Principal>
+      <Dependent Role="ManagerDetail">
+        <PropertyRef Name="manager_ManagerID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_dbo_ManagerDetail_dbo_Photo_photo_PhotoID">
+    <End Role="Photo" Type="Self.Photo" Multiplicity="0..1" />
+    <End Role="ManagerDetail" Type="Self.ManagerDetail" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Photo">
+        <PropertyRef Name="PhotoID" />
+      </Principal>
+      <Dependent Role="ManagerDetail">
+        <PropertyRef Name="photo_PhotoID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_dbo_ParentDetail_dbo_Parent_parent_ParentID">
+    <End Role="Parent" Type="Self.Parent" Multiplicity="0..1" />
+    <End Role="ParentDetail" Type="Self.ParentDetail" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Parent">
+        <PropertyRef Name="ParentID" />
+      </Principal>
+      <Dependent Role="ParentDetail">
+        <PropertyRef Name="parent_ParentID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_dbo_ParentDetailStudentDetails_dbo_ParentDetail_ParentDetail_ParentDetailID">
+    <End Role="ParentDetail" Type="Self.ParentDetail" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="ParentDetailStudentDetails" Type="Self.ParentDetailStudentDetails" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="ParentDetail">
+        <PropertyRef Name="ParentDetailID" />
+      </Principal>
+      <Dependent Role="ParentDetailStudentDetails">
+        <PropertyRef Name="ParentDetail_ParentDetailID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_dbo_ParentDetailStudentDetails_dbo_StudentDetail_StudentDetail_StudentDetailID">
+    <End Role="StudentDetail" Type="Self.StudentDetail" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="ParentDetailStudentDetails" Type="Self.ParentDetailStudentDetails" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="StudentDetail">
+        <PropertyRef Name="StudentDetailID" />
+      </Principal>
+      <Dependent Role="ParentDetailStudentDetails">
+        <PropertyRef Name="StudentDetail_StudentDetailID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_dbo_Photo_dbo_ManagerDetail_ManagerDetailID">
+    <End Role="ManagerDetail" Type="Self.ManagerDetail" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="Photo" Type="Self.Photo" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="ManagerDetail">
+        <PropertyRef Name="ManagerDetailID" />
+      </Principal>
+      <Dependent Role="Photo">
+        <PropertyRef Name="ManagerDetailID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_dbo_Photo_dbo_StudentDetail_StudentDetailID">
+    <End Role="StudentDetail" Type="Self.StudentDetail" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="Photo" Type="Self.Photo" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="StudentDetail">
+        <PropertyRef Name="StudentDetailID" />
+      </Principal>
+      <Dependent Role="Photo">
+        <PropertyRef Name="StudentDetailID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_dbo_Photo_dbo_TeacherDetail_TeacherDetailID">
+    <End Role="TeacherDetail" Type="Self.TeacherDetail" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="Photo" Type="Self.Photo" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="TeacherDetail">
+        <PropertyRef Name="TeacherDetailID" />
+      </Principal>
+      <Dependent Role="Photo">
+        <PropertyRef Name="TeacherDetailID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_dbo_SchoolDetail_dbo_School_school_SchoolID">
+    <End Role="School" Type="Self.School" Multiplicity="0..1" />
+    <End Role="SchoolDetail" Type="Self.SchoolDetail" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="School">
+        <PropertyRef Name="SchoolID" />
+      </Principal>
+      <Dependent Role="SchoolDetail">
+        <PropertyRef Name="school_SchoolID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_dbo_SchoolDetailManagerDetails_dbo_ManagerDetail_ManagerDetail_ManagerDetailID">
+    <End Role="ManagerDetail" Type="Self.ManagerDetail" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="SchoolDetailManagerDetails" Type="Self.SchoolDetailManagerDetails" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="ManagerDetail">
+        <PropertyRef Name="ManagerDetailID" />
+      </Principal>
+      <Dependent Role="SchoolDetailManagerDetails">
+        <PropertyRef Name="ManagerDetail_ManagerDetailID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_dbo_SchoolDetailManagerDetails_dbo_SchoolDetail_SchoolDetail_SchoolDetailID">
+    <End Role="SchoolDetail" Type="Self.SchoolDetail" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="SchoolDetailManagerDetails" Type="Self.SchoolDetailManagerDetails" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="SchoolDetail">
+        <PropertyRef Name="SchoolDetailID" />
+      </Principal>
+      <Dependent Role="SchoolDetailManagerDetails">
+        <PropertyRef Name="SchoolDetail_SchoolDetailID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_dbo_Score_dbo_ExamDetail_examDetail_ExamDetailID">
+    <End Role="ExamDetail" Type="Self.ExamDetail" Multiplicity="0..1" />
+    <End Role="Score" Type="Self.Score" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="ExamDetail">
+        <PropertyRef Name="ExamDetailID" />
+      </Principal>
+      <Dependent Role="Score">
+        <PropertyRef Name="examDetail_ExamDetailID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_dbo_Score_dbo_LessonDetail_lessonDetail_LessonDetailID">
+    <End Role="LessonDetail" Type="Self.LessonDetail" Multiplicity="0..1" />
+    <End Role="Score" Type="Self.Score" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="LessonDetail">
+        <PropertyRef Name="LessonDetailID" />
+      </Principal>
+      <Dependent Role="Score">
+        <PropertyRef Name="lessonDetail_LessonDetailID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_dbo_Score_dbo_StudentDetail_studentDetail_StudentDetailID">
+    <End Role="StudentDetail" Type="Self.StudentDetail" Multiplicity="0..1" />
+    <End Role="Score" Type="Self.Score" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="StudentDetail">
+        <PropertyRef Name="StudentDetailID" />
+      </Principal>
+      <Dependent Role="Score">
+        <PropertyRef Name="studentDetail_StudentDetailID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_dbo_StudentDetail_dbo_Photo_photo_PhotoID">
+    <End Role="Photo" Type="Self.Photo" Multiplicity="0..1" />
+    <End Role="StudentDetail" Type="Self.StudentDetail" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Photo">
+        <PropertyRef Name="PhotoID" />
+      </Principal>
+      <Dependent Role="StudentDetail">
+        <PropertyRef Name="photo_PhotoID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_dbo_StudentDetail_dbo_Student_student_StudentID">
+    <End Role="Student" Type="Self.Student" Multiplicity="0..1" />
+    <End Role="StudentDetail" Type="Self.StudentDetail" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Student">
+        <PropertyRef Name="StudentID" />
+      </Principal>
+      <Dependent Role="StudentDetail">
+        <PropertyRef Name="student_StudentID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_dbo_TeacherDetail_dbo_Photo_photo_PhotoID">
+    <End Role="Photo" Type="Self.Photo" Multiplicity="0..1" />
+    <End Role="TeacherDetail" Type="Self.TeacherDetail" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Photo">
+        <PropertyRef Name="PhotoID" />
+      </Principal>
+      <Dependent Role="TeacherDetail">
+        <PropertyRef Name="photo_PhotoID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_dbo_TeacherDetail_dbo_Teacher_teacher_TeacherID">
+    <End Role="Teacher" Type="Self.Teacher" Multiplicity="0..1" />
+    <End Role="TeacherDetail" Type="Self.TeacherDetail" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Teacher">
+        <PropertyRef Name="TeacherID" />
+      </Principal>
+      <Dependent Role="TeacherDetail">
+        <PropertyRef Name="teacher_TeacherID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_dbo_TeacherDetailBranchDetails_dbo_BranchDetail_BranchDetail_BranchDetailID">
+    <End Role="BranchDetail" Type="Self.BranchDetail" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="TeacherDetailBranchDetails" Type="Self.TeacherDetailBranchDetails" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="BranchDetail">
+        <PropertyRef Name="BranchDetailID" />
+      </Principal>
+      <Dependent Role="TeacherDetailBranchDetails">
+        <PropertyRef Name="BranchDetail_BranchDetailID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_dbo_TeacherDetailBranchDetails_dbo_TeacherDetail_TeacherDetail_TeacherDetailID">
+    <End Role="TeacherDetail" Type="Self.TeacherDetail" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="TeacherDetailBranchDetails" Type="Self.TeacherDetailBranchDetails" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="TeacherDetail">
+        <PropertyRef Name="TeacherDetailID" />
+      </Principal>
+      <Dependent Role="TeacherDetailBranchDetails">
+        <PropertyRef Name="TeacherDetail_TeacherDetailID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_dbo_TeacherDetailManagerDetails_dbo_ManagerDetail_ManagerDetail_ManagerDetailID">
+    <End Role="ManagerDetail" Type="Self.ManagerDetail" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="TeacherDetailManagerDetails" Type="Self.TeacherDetailManagerDetails" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="ManagerDetail">
+        <PropertyRef Name="ManagerDetailID" />
+      </Principal>
+      <Dependent Role="TeacherDetailManagerDetails">
+        <PropertyRef Name="ManagerDetail_ManagerDetailID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_dbo_TeacherDetailManagerDetails_dbo_TeacherDetail_TeacherDetail_TeacherDetailID">
+    <End Role="TeacherDetail" Type="Self.TeacherDetail" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="TeacherDetailManagerDetails" Type="Self.TeacherDetailManagerDetails" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="TeacherDetail">
+        <PropertyRef Name="TeacherDetailID" />
+      </Principal>
+      <Dependent Role="TeacherDetailManagerDetails">
+        <PropertyRef Name="TeacherDetail_TeacherDetailID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_dbo_TeacherDetailStudentDetails_dbo_StudentDetail_StudentDetail_StudentDetailID">
+    <End Role="StudentDetail" Type="Self.StudentDetail" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="TeacherDetailStudentDetails" Type="Self.TeacherDetailStudentDetails" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="StudentDetail">
+        <PropertyRef Name="StudentDetailID" />
+      </Principal>
+      <Dependent Role="TeacherDetailStudentDetails">
+        <PropertyRef Name="StudentDetail_StudentDetailID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_dbo_TeacherDetailStudentDetails_dbo_TeacherDetail_TeacherDetail_TeacherDetailID">
+    <End Role="TeacherDetail" Type="Self.TeacherDetail" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="TeacherDetailStudentDetails" Type="Self.TeacherDetailStudentDetails" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="TeacherDetail">
+        <PropertyRef Name="TeacherDetailID" />
+      </Principal>
+      <Dependent Role="TeacherDetailStudentDetails">
+        <PropertyRef Name="TeacherDetail_TeacherDetailID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="SchoolManagementDBModelStoreContainer">
+    <EntitySet Name="__MigrationHistory" EntityType="Self.__MigrationHistory" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Branch" EntityType="Self.Branch" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="BranchDetail" EntityType="Self.BranchDetail" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Classroom" EntityType="Self.Classroom" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="ClassroomDetail" EntityType="Self.ClassroomDetail" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="ClassroomDetailLessonDetails" EntityType="Self.ClassroomDetailLessonDetails" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Exam" EntityType="Self.Exam" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="ExamDetail" EntityType="Self.ExamDetail" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Lesson" EntityType="Self.Lesson" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="LessonDetail" EntityType="Self.LessonDetail" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Manager" EntityType="Self.Manager" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="ManagerDetail" EntityType="Self.ManagerDetail" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Parent" EntityType="Self.Parent" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="ParentDetail" EntityType="Self.ParentDetail" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="ParentDetailStudentDetails" EntityType="Self.ParentDetailStudentDetails" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Photo" EntityType="Self.Photo" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="School" EntityType="Self.School" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="SchoolDetail" EntityType="Self.SchoolDetail" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="SchoolDetailManagerDetails" EntityType="Self.SchoolDetailManagerDetails" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Score" EntityType="Self.Score" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Student" EntityType="Self.Student" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="StudentDetail" EntityType="Self.StudentDetail" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Teacher" EntityType="Self.Teacher" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="TeacherDetail" EntityType="Self.TeacherDetail" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="TeacherDetailBranchDetails" EntityType="Self.TeacherDetailBranchDetails" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="TeacherDetailManagerDetails" EntityType="Self.TeacherDetailManagerDetails" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="TeacherDetailStudentDetails" EntityType="Self.TeacherDetailStudentDetails" Schema="dbo" store:Type="Tables" />
+    <AssociationSet Name="FK_dbo_BranchDetail_dbo_Branch_branch_BranchID" Association="Self.FK_dbo_BranchDetail_dbo_Branch_branch_BranchID">
+      <End Role="Branch" EntitySet="Branch" />
+      <End Role="BranchDetail" EntitySet="BranchDetail" />
+    </AssociationSet>
+    <AssociationSet Name="FK_dbo_Classroom_dbo_ClassroomDetail_ClassroomDetailID" Association="Self.FK_dbo_Classroom_dbo_ClassroomDetail_ClassroomDetailID">
+      <End Role="ClassroomDetail" EntitySet="ClassroomDetail" />
+      <End Role="Classroom" EntitySet="Classroom" />
+    </AssociationSet>
+    <AssociationSet Name="FK_dbo_ClassroomDetail_dbo_Classroom_classroom_ClassroomID" Association="Self.FK_dbo_ClassroomDetail_dbo_Classroom_classroom_ClassroomID">
+      <End Role="Classroom" EntitySet="Classroom" />
+      <End Role="ClassroomDetail" EntitySet="ClassroomDetail" />
+    </AssociationSet>
+    <AssociationSet Name="FK_dbo_ClassroomDetailLessonDetails_dbo_ClassroomDetail_ClassroomDetail_ClassroomDetailID" Association="Self.FK_dbo_ClassroomDetailLessonDetails_dbo_ClassroomDetail_ClassroomDetail_ClassroomDetailID">
+      <End Role="ClassroomDetail" EntitySet="ClassroomDetail" />
+      <End Role="ClassroomDetailLessonDetails" EntitySet="ClassroomDetailLessonDetails" />
+    </AssociationSet>
+    <AssociationSet Name="FK_dbo_ClassroomDetailLessonDetails_dbo_LessonDetail_LessonDetail_LessonDetailID" Association="Self.FK_dbo_ClassroomDetailLessonDetails_dbo_LessonDetail_LessonDetail_LessonDetailID">
+      <End Role="LessonDetail" EntitySet="LessonDetail" />
+      <End Role="ClassroomDetailLessonDetails" EntitySet="ClassroomDetailLessonDetails" />
+    </AssociationSet>
+    <AssociationSet Name="FK_dbo_ExamDetail_dbo_Exam_exam_ExamID" Association="Self.FK_dbo_ExamDetail_dbo_Exam_exam_ExamID">
+      <End Role="Exam" EntitySet="Exam" />
+      <End Role="ExamDetail" EntitySet="ExamDetail" />
+    </AssociationSet>
+    <AssociationSet Name="FK_dbo_ExamDetail_dbo_ExamDetail_examDetail_ExamDetailID" Association="Self.FK_dbo_ExamDetail_dbo_ExamDetail_examDetail_ExamDetailID">
+      <End Role="ExamDetail" EntitySet="ExamDetail" />
+      <End Role="ExamDetail1" EntitySet="ExamDetail" />
+    </AssociationSet>
+    <AssociationSet Name="FK_dbo_ExamDetail_dbo_LessonDetail_LessonDetail_LessonDetailID" Association="Self.FK_dbo_ExamDetail_dbo_LessonDetail_LessonDetail_LessonDetailID">
+      <End Role="LessonDetail" EntitySet="LessonDetail" />
+      <End Role="ExamDetail" EntitySet="ExamDetail" />
+    </AssociationSet>
+    <AssociationSet Name="FK_dbo_ExamDetail_dbo_StudentDetail_studentDetail_StudentDetailID" Association="Self.FK_dbo_ExamDetail_dbo_StudentDetail_studentDetail_StudentDetailID">
+      <End Role="StudentDetail" EntitySet="StudentDetail" />
+      <End Role="ExamDetail" EntitySet="ExamDetail" />
+    </AssociationSet>
+    <AssociationSet Name="FK_dbo_LessonDetail_dbo_BranchDetail_branchdetail_BranchDetailID" Association="Self.FK_dbo_LessonDetail_dbo_BranchDetail_branchdetail_BranchDetailID">
+      <End Role="BranchDetail" EntitySet="BranchDetail" />
+      <End Role="LessonDetail" EntitySet="LessonDetail" />
+    </AssociationSet>
+    <AssociationSet Name="FK_dbo_LessonDetail_dbo_Lesson_lesson_LessonID" Association="Self.FK_dbo_LessonDetail_dbo_Lesson_lesson_LessonID">
+      <End Role="Lesson" EntitySet="Lesson" />
+      <End Role="LessonDetail" EntitySet="LessonDetail" />
+    </AssociationSet>
+    <AssociationSet Name="FK_dbo_ManagerDetail_dbo_Manager_manager_ManagerID" Association="Self.FK_dbo_ManagerDetail_dbo_Manager_manager_ManagerID">
+      <End Role="Manager" EntitySet="Manager" />
+      <End Role="ManagerDetail" EntitySet="ManagerDetail" />
+    </AssociationSet>
+    <AssociationSet Name="FK_dbo_ManagerDetail_dbo_Photo_photo_PhotoID" Association="Self.FK_dbo_ManagerDetail_dbo_Photo_photo_PhotoID">
+      <End Role="Photo" EntitySet="Photo" />
+      <End Role="ManagerDetail" EntitySet="ManagerDetail" />
+    </AssociationSet>
+    <AssociationSet Name="FK_dbo_ParentDetail_dbo_Parent_parent_ParentID" Association="Self.FK_dbo_ParentDetail_dbo_Parent_parent_ParentID">
+      <End Role="Parent" EntitySet="Parent" />
+      <End Role="ParentDetail" EntitySet="ParentDetail" />
+    </AssociationSet>
+    <AssociationSet Name="FK_dbo_ParentDetailStudentDetails_dbo_ParentDetail_ParentDetail_ParentDetailID" Association="Self.FK_dbo_ParentDetailStudentDetails_dbo_ParentDetail_ParentDetail_ParentDetailID">
+      <End Role="ParentDetail" EntitySet="ParentDetail" />
+      <End Role="ParentDetailStudentDetails" EntitySet="ParentDetailStudentDetails" />
+    </AssociationSet>
+    <AssociationSet Name="FK_dbo_ParentDetailStudentDetails_dbo_StudentDetail_StudentDetail_StudentDetailID" Association="Self.FK_dbo_ParentDetailStudentDetails_dbo_StudentDetail_StudentDetail_StudentDetailID">
+      <End Role="StudentDetail" EntitySet="StudentDetail" />
+      <End Role="ParentDetailStudentDetails" EntitySet="ParentDetailStudentDetails" />
+    </AssociationSet>
+    <AssociationSet Name="FK_dbo_Photo_dbo_ManagerDetail_ManagerDetailID" Association="Self.FK_dbo_Photo_dbo_ManagerDetail_ManagerDetailID">
+      <End Role="ManagerDetail" EntitySet="ManagerDetail" />
+      <End Role="Photo" EntitySet="Photo" />
+    </AssociationSet>
+    <AssociationSet Name="FK_dbo_Photo_dbo_StudentDetail_StudentDetailID" Association="Self.FK_dbo_Photo_dbo_StudentDetail_StudentDetailID">
+      <End Role="StudentDetail" EntitySet="StudentDetail" />
+      <End Role="Photo" EntitySet="Photo" />
+    </AssociationSet>
+    <AssociationSet Name="FK_dbo_Photo_dbo_TeacherDetail_TeacherDetailID" Association="Self.FK_dbo_Photo_dbo_TeacherDetail_TeacherDetailID">
+      <End Role="TeacherDetail" EntitySet="TeacherDetail" />
+      <End Role="Photo" EntitySet="Photo" />
+    </AssociationSet>
+    <AssociationSet Name="FK_dbo_SchoolDetail_dbo_School_school_SchoolID" Association="Self.FK_dbo_SchoolDetail_dbo_School_school_SchoolID">
+      <End Role="School" EntitySet="School" />
+      <End Role="SchoolDetail" EntitySet="SchoolDetail" />
+    </AssociationSet>
+    <AssociationSet Name="FK_dbo_SchoolDetailManagerDetails_dbo_ManagerDetail_ManagerDetail_ManagerDetailID" Association="Self.FK_dbo_SchoolDetailManagerDetails_dbo_ManagerDetail_ManagerDetail_ManagerDetailID">
+      <End Role="ManagerDetail" EntitySet="ManagerDetail" />
+      <End Role="SchoolDetailManagerDetails" EntitySet="SchoolDetailManagerDetails" />
+    </AssociationSet>
+    <AssociationSet Name="FK_dbo_SchoolDetailManagerDetails_dbo_SchoolDetail_SchoolDetail_SchoolDetailID" Association="Self.FK_dbo_SchoolDetailManagerDetails_dbo_SchoolDetail_SchoolDetail_SchoolDetailID">
+      <End Role="SchoolDetail" EntitySet="SchoolDetail" />
+      <End Role="SchoolDetailManagerDetails" EntitySet="SchoolDetailManagerDetails" />
+    </AssociationSet>
+    <AssociationSet Name="FK_dbo_Score_dbo_ExamDetail_examDetail_ExamDetailID" Association="Self.FK_dbo_Score_dbo_ExamDetail_examDetail_ExamDetailID">
+      <End Role="ExamDetail" EntitySet="ExamDetail" />
+      <End Role="Score" EntitySet="Score" />
+    </AssociationSet>
+    <AssociationSet Name="FK_dbo_Score_dbo_LessonDetail_lessonDetail_LessonDetailID" Association="Self.FK_dbo_Score_dbo_LessonDetail_lessonDetail_LessonDetailID">
+      <End Role="LessonDetail" EntitySet="LessonDetail" />
+      <End Role="Score" EntitySet="Score" />
+    </AssociationSet>
+    <AssociationSet Name="FK_dbo_Score_dbo_StudentDetail_studentDetail_StudentDetailID" Association="Self.FK_dbo_Score_dbo_StudentDetail_studentDetail_StudentDetailID">
+      <End Role="StudentDetail" EntitySet="StudentDetail" />
+      <End Role="Score" EntitySet="Score" />
+    </AssociationSet>
+    <AssociationSet Name="FK_dbo_StudentDetail_dbo_Photo_photo_PhotoID" Association="Self.FK_dbo_StudentDetail_dbo_Photo_photo_PhotoID">
+      <End Role="Photo" EntitySet="Photo" />
+      <End Role="StudentDetail" EntitySet="StudentDetail" />
+    </AssociationSet>
+    <AssociationSet Name="FK_dbo_StudentDetail_dbo_Student_student_StudentID" Association="Self.FK_dbo_StudentDetail_dbo_Student_student_StudentID">
+      <End Role="Student" EntitySet="Student" />
+      <End Role="StudentDetail" EntitySet="StudentDetail" />
+    </AssociationSet>
+    <AssociationSet Name="FK_dbo_TeacherDetail_dbo_Photo_photo_PhotoID" Association="Self.FK_dbo_TeacherDetail_dbo_Photo_photo_PhotoID">
+      <End Role="Photo" EntitySet="Photo" />
+      <End Role="TeacherDetail" EntitySet="TeacherDetail" />
+    </AssociationSet>
+    <AssociationSet Name="FK_dbo_TeacherDetail_dbo_Teacher_teacher_TeacherID" Association="Self.FK_dbo_TeacherDetail_dbo_Teacher_teacher_TeacherID">
+      <End Role="Teacher" EntitySet="Teacher" />
+      <End Role="TeacherDetail" EntitySet="TeacherDetail" />
+    </AssociationSet>
+    <AssociationSet Name="FK_dbo_TeacherDetailBranchDetails_dbo_BranchDetail_BranchDetail_BranchDetailID" Association="Self.FK_dbo_TeacherDetailBranchDetails_dbo_BranchDetail_BranchDetail_BranchDetailID">
+      <End Role="BranchDetail" EntitySet="BranchDetail" />
+      <End Role="TeacherDetailBranchDetails" EntitySet="TeacherDetailBranchDetails" />
+    </AssociationSet>
+    <AssociationSet Name="FK_dbo_TeacherDetailBranchDetails_dbo_TeacherDetail_TeacherDetail_TeacherDetailID" Association="Self.FK_dbo_TeacherDetailBranchDetails_dbo_TeacherDetail_TeacherDetail_TeacherDetailID">
+      <End Role="TeacherDetail" EntitySet="TeacherDetail" />
+      <End Role="TeacherDetailBranchDetails" EntitySet="TeacherDetailBranchDetails" />
+    </AssociationSet>
+    <AssociationSet Name="FK_dbo_TeacherDetailManagerDetails_dbo_ManagerDetail_ManagerDetail_ManagerDetailID" Association="Self.FK_dbo_TeacherDetailManagerDetails_dbo_ManagerDetail_ManagerDetail_ManagerDetailID">
+      <End Role="ManagerDetail" EntitySet="ManagerDetail" />
+      <End Role="TeacherDetailManagerDetails" EntitySet="TeacherDetailManagerDetails" />
+    </AssociationSet>
+    <AssociationSet Name="FK_dbo_TeacherDetailManagerDetails_dbo_TeacherDetail_TeacherDetail_TeacherDetailID" Association="Self.FK_dbo_TeacherDetailManagerDetails_dbo_TeacherDetail_TeacherDetail_TeacherDetailID">
+      <End Role="TeacherDetail" EntitySet="TeacherDetail" />
+      <End Role="TeacherDetailManagerDetails" EntitySet="TeacherDetailManagerDetails" />
+    </AssociationSet>
+    <AssociationSet Name="FK_dbo_TeacherDetailStudentDetails_dbo_StudentDetail_StudentDetail_StudentDetailID" Association="Self.FK_dbo_TeacherDetailStudentDetails_dbo_StudentDetail_StudentDetail_StudentDetailID">
+      <End Role="StudentDetail" EntitySet="StudentDetail" />
+      <End Role="TeacherDetailStudentDetails" EntitySet="TeacherDetailStudentDetails" />
+    </AssociationSet>
+    <AssociationSet Name="FK_dbo_TeacherDetailStudentDetails_dbo_TeacherDetail_TeacherDetail_TeacherDetailID" Association="Self.FK_dbo_TeacherDetailStudentDetails_dbo_TeacherDetail_TeacherDetail_TeacherDetailID">
+      <End Role="TeacherDetail" EntitySet="TeacherDetail" />
+      <End Role="TeacherDetailStudentDetails" EntitySet="TeacherDetailStudentDetails" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>

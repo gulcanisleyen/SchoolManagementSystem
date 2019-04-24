@@ -1,0 +1,147 @@
+﻿
+@{
+    Layout = null;
+}
+@using SchoolManagement.Models;
+@model Parent
+
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="">
+    <meta name="author" content="Dashboard">
+    <meta name="keyword" content="Dashboard, Bootstrap, Admin, Template, Theme, Responsive, Fluid, Retina">
+    <title>Parent Home Page</title>
+    <link href="~/Content/img/favicon.png" rel="icon">
+    <link href="~/Content/img/apple-touch-icon.png" rel="apple-touch-icon">
+
+
+    <!-- Bootstrap core CSS -->
+
+    <link href="~/Content/lib/bootstrap/css/bootstrap.min.css" rel="stylesheet" />
+    <!--external css-->
+
+    <link href="~/Content/lib/font-awesome/css/font-awesome.css" rel="stylesheet" />
+
+    <link href="~/Content/css/zabuto_calendar.css" rel="stylesheet" />
+
+    <link href="~/Content/lib/gritter/css/jquery.gritter.css" rel="stylesheet" type="text/css" />
+    <!-- Custom styles for this template -->
+
+    <link href="~/Content/css/style.css" rel="stylesheet" />
+    <link href="~/Content/css/style-responsive.css" rel="stylesheet" />
+
+    <script src="~/Content/lib/chart-master/Chart.js"></script>
+    @RenderSection("head", false)   @*RenderSection'ı biz ekledik*@
+</head>
+
+<body>
+    <section id="container">
+
+        <header class="header black-bg">
+            <div class="sidebar-toggle-box">
+                <div class="fa fa-bars tooltips" data-placement="right" data-original-title="Toggle Navigation"></div>
+            </div>
+            <!--logo start-->
+            <a href="/Home/IndexParent" class="logo"><b>@ViewBag.Title</b></a>
+            <!--logo end-->
+
+            <div class="top-menu">
+                <ul class="nav pull-right top-menu">
+                    <li><a class="logout" href="/Member/Login">Logout</a></li>
+                </ul>
+            </div>
+        </header>
+
+        <aside>
+            <div id="sidebar" class="nav-collapse ">
+                <!-- sidebar menu start-->
+                <ul class="sidebar-menu" id="nav-accordion">
+                    <p class="centered"><img src="~/Content/img/ui-sam.jpg" class="img-circle" width="80"></p>
+                    <h5 class="centered"> @*@Model.ParentFirstName&@Model.ParentLastName*@</h5>
+
+                    <li class="mt">
+                        <a class="active" href="/Home/IndexParent">
+                            <i class="fa fa-dashboard"></i>
+                            <span>Parent Panel</span>
+                        </a>
+                    </li>
+
+                    <li class="sub-menu">
+                        <a href="/Student/Index">
+                            <i class="fa fa-info"></i>
+                            <span>Student Information</span>
+                        </a>
+
+                    </li>
+                    <li class="sub-menu">
+                        <a href="/Student/StudentScores">
+                            <i class="fa fa-bar-chart-o"></i>
+                            <span>Student Scores</span>
+                        </a>
+
+
+                    </li>
+                 
+
+                </ul>
+                <!-- sidebar menu end-->
+            </div>
+        </aside>
+        <!--sidebar end-->
+        <!-- **********************************************************************************************************************************************************
+        MAIN CONTENT
+        *********************************************************************************************************************************************************** -->
+        <!--main content start-->
+     
+        <!-- /MAIN CONTENT -->
+        <!--main content end-->
+        <!--footer start-->
+       
+        <!--footer end-->
+    </section>
+    <div class="right-column-content">
+        @RenderBody() <!--Noktalı virgül koyma buraya!!-->   @*Normalde orjinalinde burda divler vardı. Biz bu divleri silip kendimiz bir RenderBody() oluşturduk*@
+    </div>
+    @RenderSection("body", false)
+    @RenderSection("scripts", false)
+    <!-- js placed at the end of the document so the pages load faster -->
+    <script src="~/Content/lib/jquery/jquery.min.js"></script>
+    <script src="~/Content/lib/bootstrap/js/bootstrap.min.js"></script>
+    <script class="include" type="text/javascript" src="~/Content/lib/jquery.dcjqaccordion.2.7.js"></script>
+    <script src="~/Content/lib/jquery.scrollTo.min.js"></script>
+    <script src="~/Content/lib/jquery.nicescroll.js" type="text/javascript"></script>
+    <script src="~/Content/lib/jquery.sparkline.js"></script>
+    <script src="~/Content/lib/common-scripts.js"></script>
+    <!--common script for all pages-->
+    <script src="~/Content/lib/gritter/js/jquery.gritter.js" type="text/javascript"></script>
+    <script src="~/Content/lib/gritter-conf.js" type="text/javascript"></script>
+    <script src="~/Content/lib/sparkline-chart.js"></script>
+    <script src="~/Content/lib/zabuto_calendar.js"></script>
+    <script type="text/javascript">
+        $(document).ready(function () {
+            var unique_id = $.gritter.add({
+                // (string | mandatory) the heading of the notification
+                title: 'Welcome to My Page!',
+                // (string | mandatory) the text inside the notification
+                text: 'Hover me to enable the Close Button. You can hide the left sidebar clicking on the button next to the logo.',
+                // (string | optional) the image to display on the left
+                image: '~/Content/img/ui-sam.jpg',
+                // (bool | optional) if you want it to fade out on its own or just sit there
+                sticky: false,
+                // (int | optional) the time you want it to be alive for before fading out
+                time: 8000,
+                // (string | optional) the class name you want to apply to that specific message
+                class_name: 'my-sticky-class'
+            });
+
+            return false;
+        });
+    </script>
+  
+</body>
+
+</html>

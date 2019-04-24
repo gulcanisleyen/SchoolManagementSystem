@@ -1,0 +1,87 @@
+﻿
+@{
+    ViewBag.Title = "AddUserAccount";
+    Layout = "~/Views/Shared/_LayoutAdmin.cshtml";
+}
+
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="">
+    <meta name="author" content="Dashboard">
+    <meta name="keyword" content="Dashboard, Bootstrap, Admin, Template, Theme, Responsive, Fluid, Retina">
+    <title>Register Page</title>
+
+    <!-- Favicons -->
+    <link href="~/Content/img/favicon.png" rel="icon">
+
+    <link href="~/Content/img/apple-touch-icon.png" rel="apple-touch-icon">
+
+    <!-- Bootstrap core CSS -->
+    <link href="~/Content/lib/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+    <!--external css-->
+    <link href="~/Content/lib/font-awesome/css/font-awesome.css" rel="stylesheet" />
+    <!-- Custom styles for this template -->
+    <link href="~/Content/css/style.css" rel="stylesheet">
+    <link href="~/Content/css/style-responsive.css" rel="stylesheet">
+
+    <!-- =======================================================
+      Template Name: Dashio
+      Template URL: https://templatemag.com/dashio-bootstrap-admin-template/
+      Author: TemplateMag.com
+      License: https://templatemag.com/license/
+    ======================================================= -->
+</head>
+
+<body>
+    <div id="login-page">
+        <div class="container">
+            <form class="form-login" action="/UserAccount/AddUserAccount" method="post" role="form" enctype="multipart/form-data">
+                <h2 class="form-login-heading">register in now</h2>
+                <div class="login-wrap">
+                    <input type="text" class="form-control" placeholder="Username" autofocus>
+                    <br>
+                    <input type="text" class="form-control" placeholder="UserSurname" autofocus>
+                    <br>
+                    <input type="text" class="form-control" placeholder="E-mail" autofocus>
+                    <br>
+                    <input type="password" class="form-control" placeholder="Password">
+                    <br>
+                    <input type="password" class="form-control" placeholder="Confirm Password">
+                    <br>
+                    <input type="text" class="form-control" placeholder="Password  Question" autofocus>
+                    <br>
+                    <input type="text" class="form-control" placeholder="Password  Answer" autofocus>
+                    <br>
+                    <button class="btn btn-theme btn-block" type="submit"><i class="fa fa-lock"></i> REGISTER IN</button>
+                    <hr>
+
+                    <div class="registration">
+                        Do you have an acoount ?<br />
+                        <a class="" href="/UserAccount/Login">
+                            Login to system
+                        </a>
+                    </div>
+                </div>
+
+            </form>
+        </div>
+    </div>
+    <!-- js placed at the end of the document so the pages load faster -->
+    <script src="~/Content/lib/jquery/jquery.min.js"></script>
+    <script src="~/Content/lib/bootstrap/js/bootstrap.min.js"></script>
+    <!--BACKSTRETCH-->
+    <!-- You can use an image of whatever size. This script will stretch to fit in any screen size.-->
+    <script type="text/javascript" src="~/Content/lib/jquery.backstretch.min.js"></script>
+    <script>
+        $.backstretch("img/login-bg.jpg", {
+            speed: 500
+        });
+    </script>
+</body>
+</html>
+

@@ -1,0 +1,191 @@
+﻿@{
+    Layout = null;
+}
+@*@using SchoolManagement.Models;*@
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>@Page.Title</title>
+    @RenderSection("head", required: false)
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="">
+    <meta name="author" content="Dashboard">
+    <meta name="keyword" content="Dashboard, Bootstrap, Admin, Template, Theme, Responsive, Fluid, Retina">
+    <title>Dashio - Bootstrap Admin Template</title>
+
+    <!-- Favicons -->
+    <link href="/Content/img/favicon.png" rel="icon">
+    <link href="/Content/img/apple-touch-icon.png" rel="apple-touch-icon">
+
+    <!-- Bootstrap core CSS -->
+    <link href="/Content/lib/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+    <!--external css-->
+    <link href="/Content/lib/font-awesome/css/font-awesome.css" rel="stylesheet" />
+    <link rel="stylesheet" type="text/css" href="/Content/css/zabuto_calendar.css">
+    <link rel="stylesheet" type="text/css" href="/Content/lib/gritter/css/jquery.gritter.css" />
+    <!-- Custom styles for this template -->
+    <link href="/Content/css/style.css" rel="stylesheet">
+    <link href="/Content/css/style-responsive.css" rel="stylesheet">
+    <script src="/Content/lib/chart-master/Chart.js"></script>
+
+    <!-- =======================================================
+      Template Name: Dashio
+      Template URL: https://templatemag.com/dashio-bootstrap-admin-template/
+      Author: TemplateMag.com
+      License: https://templatemag.com/license/
+    ======================================================= -->
+    @RenderSection("head", false)
+</head>
+<body>
+    <section id="container">
+        <!-- **********************************************************************************************************************************************************
+        TOP BAR CONTENT & NOTIFICATIONS
+        *********************************************************************************************************************************************************** -->
+        <!--header start-->
+        <header class="header black-bg">
+            <div class="sidebar-toggle-box">
+                <div class="fa fa-bars tooltips" data-placement="right" data-original-title="Toggle Navigation"></div>
+            </div>
+            <!--logo start-->
+            <a href="/Content/index.html" class="logo"><b>ÖGRETMEN<span>SAYFASI</span></b></a>
+            <!--logo end-->
+            <div class="top-menu">
+                <ul class="nav pull-right top-menu">
+                    <li><a class="logout" href="/Content/login.html">Logout</a></li>
+                </ul>
+            </div>
+        </header>
+        <!--header end-->
+        <!-- **********************************************************************************************************************************************************
+        MAIN SIDEBAR MENU
+        *********************************************************************************************************************************************************** -->
+        <!--sidebar start-->
+        <aside>
+            <div id="sidebar" class="nav-collapse ">
+                <!-- sidebar menu start-->
+                <ul class="sidebar-menu" id="nav-accordion">
+                    <p class="centered"><a href="/Content/profile.html"><img src="/Content/img/ui-sam.jpg" class="img-circle" width="80"></a></p>
+                    <h5 class="centered">Sam Soffes</h5>
+                    <li class="mt">
+                        <a class="active" href="/Home/Index">
+                            <i class="fa fa-home"></i>
+                            <span>Ana Sayfa</span>
+                        </a>
+                    </li>
+                    <li class="sub-menu">
+                        <a href="/Content/javascript:;">
+                            <i class="fa fa-book"></i>
+                            <span>Dersler</span>
+                        </a>
+                        <ul class="sub">
+                            <li><a href="/Lesson/LessonList">Ders Programı</a></li>
+                            <li><a href="/Lesson/LessonDescription">Ders İçeriği</a></li>
+                            <li><a href="/Lesson/ExamList">Sıvavlar</a></li>
+                        </ul>
+                    </li>
+                    <li class="sub-menu">
+                        <a href="/Content/javascript:;">
+                            <i class="fa fa-child"></i>
+                            <span>Öğrenciler</span>
+                        </a>
+                        <ul class="sub">
+                            <li><a href="/TeacherStudent/AddScore">Notlandırma</a></li>
+                            <li><a href="/TeacherStudent/StudentList">Öğrenci Listesi</a></li>
+                            <li><a href="/TeacherStudent/ScoreList">Not Listesi</a></li>
+                        </ul>
+                    </li>
+                    <li class="sub-menu">
+                        <a href="/Content/javascript:;">
+                            <i class="fa fa-user-circle"></i>
+                            <span>Veliler</span>
+                        </a>
+                        <ul class="sub">
+                            <li><a href="/TeacherParent/ParentList">Veli Listesi</a></li>
+                        </ul>
+                    </li>
+                    <li class="sub-menu">
+                        <a href="/Content/javascript:;">
+                            <i class="fa fa-tasks"></i>
+                            <span>Derslikler</span>
+                        </a>
+                        <ul class="sub">
+                            <li><a href="/TeacherClassroom/ClassroomList">Derslik Listesi</a></li>
+                        </ul>
+                    </li>
+                    <li class="sub-menu">
+                        <a href="/Content/javascript:;">
+                            <i class="fa fa-info"></i>
+                            <span>İdareciler</span>
+                        </a>
+                        <ul class="sub">
+                            <li><a href="/Manager/ManagerList">İdareci Listesi</a></li>
+                        </ul>
+                    </li>
+                    <li>
+                        <a href="/Content/inbox.html">
+                            <i class="fa fa-university"></i>
+                            <span>Okul</span>
+                        </a>
+                        <ul class="sub">
+                            <li><a href="/School/SchoolList">Okul Bilgileri</a></li>
+                        </ul>
+                    </li>
+                </ul>
+                <!-- sidebar menu end-->
+            </div>
+        </aside>
+        <!--sidebar end-->
+        <!-- **********************************************************************************************************************************************************
+        MAIN CONTENT
+        *********************************************************************************************************************************************************** -->
+        <!--main content start-->
+        <div>
+            @RenderBody();
+        </div>
+        @RenderSection("body", false)
+        @RenderSection("scripts", false)
+
+        <!--main content end-->
+        <!--footer start-->
+        <!--footer end-->
+    </section>
+    <!-- js placed at the end of the document so the pages load faster -->
+    <script src="/Content/lib/jquery/jquery.min.js"></script>
+
+    <script src="/Content/lib/bootstrap/js/bootstrap.min.js"></script>
+    <script class="include" type="text/javascript" src="/Content/lib/jquery.dcjqaccordion.2.7.js"></script>
+    <script src="/Content/lib/jquery.scrollTo.min.js"></script>
+    <script src="/Content/lib/jquery.nicescroll.js" type="text/javascript"></script>
+    <script src="/Content/lib/jquery.sparkline.js"></script>
+    <!--common script for all pages-->
+    <script src="/Content/lib/common-scripts.js"></script>
+    <script type="text/javascript" src="/Content/lib/gritter/js/jquery.gritter.js"></script>
+    <script type="text/javascript" src="/Content/lib/gritter-conf.js"></script>
+    <!--script for this page-->
+    <script src="/Content/lib/sparkline-chart.js"></script>
+    <script src="/Content/lib/zabuto_calendar.js"></script>
+    <script type="text/javascript">
+        $(document).ready(function () {
+            var unique_id = $.gritter.add({
+                // (string | mandatory) the heading of the notification
+                title: 'Welcome to Dashio!',
+                // (string | mandatory) the text inside the notification
+                text: 'Hover me to enable the Close Button. You can hide the left sidebar clicking on the button next to the logo.',
+                // (string | optional) the image to display on the left
+                image: 'img/ui-sam.jpg',
+                // (bool | optional) if you want it to fade out on its own or just sit there
+                sticky: false,
+                // (int | optional) the time you want it to be alive for before fading out
+                time: 8000,
+                // (string | optional) the class name you want to apply to that specific message
+                class_name: 'my-sticky-class'
+            });
+
+            return false;
+        });
+    </script>
+
+</body>
+</html>
